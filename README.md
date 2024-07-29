@@ -1,33 +1,64 @@
-# Article Credibility Classification
+Submitted by Netanel Shen and Gadi Yohannan.
 
-## Project Overview
-This project aims to develop a text classification model to classify news articles into two categories: reliable and unreliable. The goal is to ensure that the published articles on the media company's website are trustworthy and not fake.
+### Key Points for the Final Report:
 
-## Data Collection and Preparation
-1. **Data Collection:**
-   - Collected news articles from reliable and unreliable sources.
-   - Ensured data quality by considering factors such as the source's reputation and consistency.
+1. **Detailed Description of All Work Steps and Techniques Applied:**
+   - **Data Collection:**
+     - Collected articles from a trusted repository.
+   - **Data Cleaning:**
+     - Removed punctuation, HTML tags, and special characters.
+     - Converted text to lowercase.
+     - Performed lemmatization to reduce words to their base form.
+     - Removed stop words to reduce noise.
+   - **Data Splitting:**
+     - Split the data into training and testing sets for fair evaluation.
+   - **Model Training:**
+     - Used five different models (Naive Bayes, Random Forest, SVM, KNN, Logistic Regression).
+   - **Model Evaluation:**
+     - Evaluated models using precision, recall, and F1 score.
+   - **Saving the Best Model:**
+     - Saved the Random Forest model as it had the highest F1 score.
+   - **Prediction on New Articles:**
+     - Created a function to preprocess new articles and used the saved model for predictions.
 
-2. **Data Cleaning:**
-   - Removed irrelevant information (such as HTML tags and special characters) from the articles.
-   - Converted all text to lowercase for uniformity.
-   - Performed lemmatization to normalize words to their base forms.
-   - Removed common stop words that do not contribute to the content's meaning.
+2. **Analysis of Each Step's Impact on Final Results:**
+   - **Data Cleaning:**
+     - Improved model accuracy by reducing noise and ensuring consistency.
+   - **Lowercasing and Lemmatization:**
+     - Reduced the number of unique tokens, improving model efficiency.
+   - **Removing Stop Words:**
+     - Focused the model on important words, enhancing its ability to detect relevant features.
+   - **Data Splitting:**
+     - Ensured that the model was trained and tested on different sets, providing a realistic performance estimate.
 
-## Model Training and Evaluation
-1. **Pipeline Creation:**
-   - Created a Scikit-Learn pipeline that includes all processing steps and the model for text classification.
+3. **Comparison of Model Performance and Suggested Improvements:**
+   - **Naive Bayes:**
+     - **Advantages:** Simple, fast, effective for text classification.
+     - **Disadvantages:** Assumes feature independence.
+   - **Random Forest:**
+     - **Advantages:** Handles large datasets well, provides feature importance.
+     - **Disadvantages:** Can be slow and resource-intensive.
+   - **Support Vector Machine (SVM):**
+     - **Advantages:** Effective in high-dimensional spaces.
+     - **Disadvantages:** Computationally expensive, sensitive to parameter choice.
+   - **K-Nearest Neighbors (KNN):**
+     - **Advantages:** Simple and intuitive.
+     - **Disadvantages:** Computationally expensive during prediction.
+   - **Logistic Regression:**
+     - **Advantages:** Simple and interpretable.
+     - **Disadvantages:** Assumes a linear relationship.
+   - **Improvement Suggestions:**
+     - Further tuning of hyperparameters.
+     - Combining multiple models (ensemble methods).
 
-2. **Data Splitting:**
-   - Split the processed data into training and testing sets to ensure fair training and testing.
-
-3. **Model Training:**
-   - Trained five different models for text classification: Naive Bayes, Random Forest, Support Vector Machine (SVM), K-Nearest Neighbors (KNN), and Logistic Regression.
-
-4. **Performance Evaluation:**
-   - Evaluated the models' performance using metrics such as Accuracy, Recall, Precision, and F1 Score.
-   - The Random Forest classifier achieved the highest F1 Score of 0.812030, indicating it is the best performing model among those evaluated.
-
-## Key Insights
-- **Best Performing Model:** The Random Forest classifier has the best balance between precision and recall, making it the most reliable model for classifying news articles.
-- **Model Consistency:** SVM and KNN also performed well, indicating they are reliable but slightly less effective than the Random Forest.
+4. **Conclusions and Recommendations for the Company Based on Analysis:**
+   - **Deploy the Random Forest Model:**
+     - Highest F1 score, best overall performance.
+   - **Regular Model Retraining:**
+     - Keep the model updated with new data to maintain accuracy.
+   - **Explore Ensemble Methods:**
+     - Combine strengths of different models for potentially better performance.
+   - **Implement Continuous Monitoring:**
+     - Monitor the model's performance in real-time and make adjustments as needed.
+   - **Gather User Feedback:**
+     - Use feedback to further refine the model and improve its accuracy.
